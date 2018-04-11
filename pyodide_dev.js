@@ -60,8 +60,11 @@ function do_benchmark() {
         "    return julia\n" +
         "\n" +
         "from timeit import Timer\n" +
+        "from js import console\n" +
         "t = Timer(run, setup)\n" +
+        "console.profile()\n" +
         "r = t.repeat(11, 40)\n" +
         "print(np.mean(r))\n"
     ));
+    console.profileEnd();
 }
